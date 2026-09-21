@@ -1,25 +1,35 @@
 {
   "name": "what-if-skill",
   "version": "1.0.0",
-  "description": "A creative exploration and brainstorming skill for AI coding agents",
+  "description": "A creative exploration and grounded brainstorming skill for AI coding agents",
   "main": "bin/cli.js",
   "bin": {
     "what-if-skill": "bin/cli.js"
   },
   "files": [
     "bin",
+    "skills",
     "SKILL.md",
     "examples",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "plugin.json",
+    "opencode.json",
+    "kimi.plugin.json",
+    "qwen-extension.json",
+    "agents"
   ],
+  "pi": {
+    "skills": ["./skills"]
+  },
   "keywords": [
     "antigravity",
     "claude-code",
     "cursor",
     "ai-agent",
     "skills",
-    "coding-agent"
+    "coding-agent",
+    "agent-skills"
   ],
   "author": "Morteza Pourmirzai",
   "license": "MIT",

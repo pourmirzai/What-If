@@ -1,0 +1,6 @@
+{
+  "name": "what-if",
+  "version": "1.0.0",
+  "description": "Creative exploration and grounded brainstorming skill for AI coding agents.",
+  "skills": ["skills/what-if"]
+}

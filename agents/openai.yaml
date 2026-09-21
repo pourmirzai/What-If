@@ -1,0 +1,7 @@
+interface:
+  display_name: "What-if"
+  short_description: "Grounded creative exploration and architectural brainstorming"
+  default_prompt: "Use $what-if to explore opportunities and ask 'What if...?' about this codebase."
+
+policy:
+  allow_implicit_invocation: false

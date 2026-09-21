@@ -7,7 +7,10 @@ const readline = require('readline');
 
 const homeDir = os.homedir();
 const cwd = process.cwd();
-const skillSource = path.join(__dirname, '..', 'SKILL.md');
+let skillSource = path.join(__dirname, '..', 'skills', 'what-if', 'SKILL.md');
+if (!fs.existsSync(skillSource)) {
+  skillSource = path.join(__dirname, '..', 'SKILL.md');
+}
 
 if (!fs.existsSync(skillSource)) {
   console.error("❌ Error: SKILL.md not found in package directory.");
