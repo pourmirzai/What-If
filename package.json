@@ -1,0 +1,30 @@
+{
+  "name": "what-if-skill",
+  "version": "1.0.0",
+  "description": "A creative exploration and brainstorming skill for AI coding agents",
+  "main": "bin/cli.js",
+  "bin": {
+    "what-if-skill": "bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "SKILL.md",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "antigravity",
+    "claude-code",
+    "cursor",
+    "ai-agent",
+    "skills",
+    "coding-agent"
+  ],
+  "author": "Morteza Pourmirzai",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pourmirzai/What-If.git"
+  }
+}

@@ -71,25 +71,84 @@ what-if/
 
 ---
 
-## 🚀 Installation & Usage
+## 🚀 Installation
 
-### Google Antigravity & Agentic Frameworks
-Clone or copy this repository into your workspace or global skills directory:
+You can install **What-if** automatically in 2 seconds via `npx`, or manually copy it to your preferred agent's config.
 
-**Project-Level:**
+### ⚡ 1-Click Installer (via `npx`)
+
+Install directly from GitHub without cloning or installing dependencies:
+
+```bash
+# Interactive setup (prompts which agent to configure):
+npx github:pourmirzai/What-If
+
+# Or install for a specific agent directly:
+npx github:pourmirzai/What-If --antigravity
+npx github:pourmirzai/What-If --claude
+npx github:pourmirzai/What-If --cursor
+npx github:pourmirzai/What-If --windsurf
+npx github:pourmirzai/What-If --all
+```
+*(To install inside the current project instead of globally, add `--local`)*
+
+---
+
+### 🛠️ Manual Installation by Client
+
+#### 1. Google Antigravity / Gemini CLI
+**Global (recommended):**
+```bash
+mkdir -p ~/.gemini/config/skills/what-if
+curl -sL https://raw.githubusercontent.com/pourmirzai/What-If/main/SKILL.md -o ~/.gemini/config/skills/what-if/SKILL.md
+```
+**Per-Project:**
 ```bash
 mkdir -p .agent/skills/what-if
-cp SKILL.md .agent/skills/what-if/
+curl -sL https://raw.githubusercontent.com/pourmirzai/What-If/main/SKILL.md -o .agent/skills/what-if/SKILL.md
 ```
 
-**Global (User-Level):**
+#### 2. Claude Code
+**Global:**
 ```bash
-mkdir -p ~/.gemini/antigravity/skills/what-if
-cp SKILL.md ~/.gemini/antigravity/skills/what-if/
+mkdir -p ~/.claude/skills/what-if
+curl -sL https://raw.githubusercontent.com/pourmirzai/What-If/main/SKILL.md -o ~/.claude/skills/what-if/SKILL.md
+```
+**Per-Project:**
+```bash
+mkdir -p .claude/skills/what-if
+curl -sL https://raw.githubusercontent.com/pourmirzai/What-If/main/SKILL.md -o .claude/skills/what-if/SKILL.md
 ```
 
-### Other Coding Agents (Claude Code, Cursor, Windsurf, Copilot)
-You can directly import or reference `SKILL.md` in your agent's system rules or prompt configuration (e.g. `.cursorrules`, `.windsurfrules`, or Claude Code custom commands).
+#### 3. Cursor
+Add as a project rule (`.cursor/rules/what-if.mdc`):
+```bash
+mkdir -p .cursor/rules
+curl -sL https://raw.githubusercontent.com/pourmirzai/What-If/main/SKILL.md -o .cursor/rules/what-if.mdc
+```
+
+#### 4. Windsurf (Cascade)
+Add to `.windsurfrules` at your project root:
+```bash
+curl -sL https://raw.githubusercontent.com/pourmirzai/What-If/main/SKILL.md >> .windsurfrules
+```
+
+#### 5. OpenAI Codex / Universal Coding Agents
+Save as `AGENTS.md` or `.agents/skills/what-if/SKILL.md`:
+```bash
+mkdir -p .agents/skills/what-if
+curl -sL https://raw.githubusercontent.com/pourmirzai/What-If/main/SKILL.md -o .agents/skills/what-if/SKILL.md
+```
+
+---
+
+## 🔄 Updating the Skill
+
+Whenever new updates are pushed, re-run:
+```bash
+npx github:pourmirzai/What-If --all
+```
+It will automatically overwrite the installed skill with the latest version.
 
 ---
 
