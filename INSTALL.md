@@ -2,6 +2,10 @@
 
 Choose your coding assistant or agent harness below.
 
+> **Verification status (2026-09-29, Node 24, `skills` CLI v1.7.0).**
+> ✅ Executed and confirmed working: `npx skills add pourmirzai/What-If --list`, `npx skills add pourmirzai/What-If`, `npx skills add pourmirzai/What-If -a cursor -y`, `npx skills add pourmirzai/What-If -a claude-code -y`, `npx github:pourmirzai/What-If`, `npx github:pourmirzai/What-If --claude --local`.
+> ⬜ Not executed: global `-g` installs, `-a opencode`, `npx github:pourmirzai/What-If --all`, and the Antigravity/Gemini CLI, Windsurf, Qwen Code, Zed, and Codex sections below. They either write to your home directory or need a tool that is not installed here. Each follows that tool's documented interface — review before use.
+
 ---
 
 <details open>
@@ -38,6 +42,34 @@ npx skills update -g
 ```bash
 npx skills remove what-if
 ```
+
+</details>
+
+---
+
+<details>
+<summary><strong>1-Click Installer (any harness)</strong></summary>
+
+Interactive menu that writes `SKILL.md` to the target you choose (Google Antigravity / Gemini CLI, Claude Code, Cursor, Windsurf, or the current project).
+
+### Install
+```bash
+npx github:pourmirzai/What-If
+```
+
+Non-interactive equivalents:
+```bash
+# Everything, globally:
+npx github:pourmirzai/What-If --all
+
+# A single target, current project only:
+npx github:pourmirzai/What-If --claude --local
+```
+
+Supported flags: `--all`, `--antigravity`, `--claude`, `--cursor`, `--windsurf`, `--codex`, `--local` (omit `--local` for a global install).
+
+### Uninstall
+Delete the `SKILL.md` file the installer reported writing, e.g. `rm -rf ~/.claude/skills/what-if`.
 
 </details>
 
@@ -83,19 +115,20 @@ rm -rf ~/.gemini/config/skills/what-if
 <summary><strong>Claude Code</strong></summary>
 
 ### Install
+
+**Recommended — via the universal installer (verified):**
 ```bash
-# Add marketplace repository:
-claude plugin marketplace add pourmirzai/What-If
-
-# Install plugin:
-claude plugin install what-if@what-if
+npx skills add pourmirzai/What-If -a claude-code -y
 ```
+This installs the skill into the current project's `.claude/skills/what-if`. (Without `-a`, the installer also detects Claude Code automatically and symlinks that same location from `.agents/skills/what-if`.)
 
-Or copy the skill directly:
+**Or copy the skill directly (single file):**
 ```bash
 mkdir -p ~/.claude/skills/what-if
 curl -sL https://raw.githubusercontent.com/pourmirzai/What-If/main/skills/what-if/SKILL.md -o ~/.claude/skills/what-if/SKILL.md
 ```
+
+> ⚠️ **Not available:** `claude plugin marketplace add pourmirzai/What-If` fails, because this repository has no `.claude-plugin/marketplace.json`. Use one of the two methods above instead.
 
 ### Verify
 Start a new Claude Code session and run:
@@ -104,15 +137,16 @@ Start a new Claude Code session and run:
 ```
 
 ### Update
+Re-run the `curl` command above, or:
 ```bash
-claude plugin marketplace update what-if
-claude plugin upgrade --scope user what-if@what-if
+npx skills update what-if
 ```
 
 ### Uninstall
 ```bash
-claude plugin uninstall --scope user what-if@what-if
-claude plugin marketplace remove what-if
+npx skills remove what-if
+# or, if you copied the file by hand:
+rm -rf ~/.claude/skills/what-if
 ```
 
 </details>
