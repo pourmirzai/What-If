@@ -1,0 +1,20 @@
+{
+  "name": "what-if",
+  "interface": {
+    "displayName": "What-if"
+  },
+  "plugins": [
+    {
+      "name": "what-if",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

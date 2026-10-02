@@ -49,6 +49,12 @@ npx github:pourmirzai/What-If
 ```
 Opens an interactive menu and installs to the agent you pick.
 
+### Alternative 3: Claude Code / Codex plugin marketplaces
+```bash
+claude plugin marketplace add pourmirzai/What-If && claude plugin install what-if@what-if
+codex plugin marketplace add pourmirzai/What-If && codex plugin add what-if@what-if
+```
+
 🔗 **For detailed instructions across all clients (Antigravity, Claude Code, Windsurf, Zed, Qwen, Codex), see [INSTALL.md](./INSTALL.md).**
 
 ---
@@ -70,6 +76,8 @@ These checks prove that the skill **installs**. They do not prove that every age
 | File | Declared target |
 | --- | --- |
 | `plugin.json` | Claude Code / OpenCode plugin manifest |
+| `.claude-plugin/marketplace.json` | Claude Code plugin marketplace |
+| `.agents/plugins/marketplace.json` | Codex plugin marketplace (also readable by ChatGPT desktop as a legacy-compatible marketplace) |
 | `opencode.json` | OpenCode configuration |
 | `kimi.plugin.json` | Kimi plugin |
 | `qwen-extension.json` | Qwen Code extension |
@@ -78,7 +86,19 @@ These checks prove that the skill **installs**. They do not prove that every age
 
 **Manual installation:** [INSTALL.md](./INSTALL.md) documents single-file `curl` installs for Gemini CLI/Antigravity, Claude Code, Windsurf, Zed, and Codex/`AGENTS.md`. These copy `SKILL.md` by hand; they were reviewed but not executed here.
 
-**Known limitation:** `claude plugin marketplace add pourmirzai/What-If` fails, because this repository has no `.claude-plugin/marketplace.json`. For Claude Code, use `npx skills add pourmirzai/What-If` (tested) or the manual `curl` copy.
+**Plugin marketplaces:** this repository doubles as a plugin marketplace for Claude Code and Codex, so the skill can be installed as a plugin:
+
+```bash
+# Claude Code
+claude plugin marketplace add pourmirzai/What-If
+claude plugin install what-if@what-if
+
+# Codex CLI
+codex plugin marketplace add pourmirzai/What-If
+codex plugin add what-if@what-if
+```
+
+Verified 2026-10-02 (`claude` 2.1.269, `codex` 0.153.4) using the local-directory form of `marketplace add`: both marketplaces register, both plugins install, and Claude Code reports the `what-if` skill in the plugin's component inventory. The `owner/repo` form of the command needs these manifests on the pushed default branch of the GitHub repository.
 
 ---
 
@@ -214,6 +234,11 @@ what-if/
 ├── agents/               # Harness-specific command templates
 │   ├── gemini.toml       # Google Antigravity / Gemini CLI
 │   └── openai.yaml       # OpenAI Codex
+├── .claude-plugin/
+│   └── marketplace.json  # Claude Code plugin marketplace manifest
+├── .agents/
+│   └── plugins/
+│       └── marketplace.json # Codex plugin marketplace manifest
 ├── plugin.json           # Claude Code & OpenCode plugin manifest
 ├── opencode.json         # OpenCode configuration
 ├── kimi.plugin.json      # Kimi manifest

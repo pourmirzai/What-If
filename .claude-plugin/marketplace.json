@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "what-if",
+  "version": "1.0.0",
+  "description": "Creative exploration and grounded brainstorming skill for AI coding agents.",
+  "owner": {
+    "name": "Morteza Pourmirzai",
+    "url": "https://github.com/pourmirzai"
+  },
+  "plugins": [
+    {
+      "name": "what-if",
+      "source": ".",
+      "displayName": "What-if",
+      "description": "Turns your coding agent into a creative co-conspirator that asks 'What if...?' and writes WHAT_IF.md.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "tags": ["brainstorming", "creativity", "agent-skills"]
+    }
+  ]
+}

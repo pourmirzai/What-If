@@ -4,7 +4,11 @@ Choose your coding assistant or agent harness below.
 
 > **Verification status (2026-09-29, Node 24, `skills` CLI v1.7.0).**
 > ✅ Executed and confirmed working: `npx skills add pourmirzai/What-If --list`, `npx skills add pourmirzai/What-If`, `npx skills add pourmirzai/What-If -a cursor -y`, `npx skills add pourmirzai/What-If -a claude-code -y`, `npx github:pourmirzai/What-If`, `npx github:pourmirzai/What-If --claude --local`.
-> ⬜ Not executed: global `-g` installs, `-a opencode`, `npx github:pourmirzai/What-If --all`, and the Antigravity/Gemini CLI, Windsurf, Qwen Code, Zed, and Codex sections below. They either write to your home directory or need a tool that is not installed here. Each follows that tool's documented interface — review before use.
+> ⬜ Not executed: global `-g` installs, `-a opencode`, `npx github:pourmirzai/What-If --all`, and the Antigravity/Gemini CLI, Windsurf, Qwen Code, and Zed sections below. They either write to your home directory or need a tool that is not installed here. Each follows that tool's documented interface — review before use.
+
+> **Marketplace verification (2026-10-02, `claude` 2.1.269, `codex` 0.153.4).**
+> ✅ Executed and confirmed working: `claude plugin validate .claude-plugin/marketplace.json`, `claude plugin marketplace add ./`, `claude plugin install what-if@what-if` (skill shows up in `claude plugin details`), `codex plugin marketplace add ./`, `codex plugin add what-if@what-if` (install lands in `~/.codex/plugins/cache` with `skills/what-if/SKILL.md`).
+> ⬜ Not executed: the `owner/repo` form of `marketplace add` for either tool — it needs `.claude-plugin/marketplace.json` and `.agents/plugins/marketplace.json` pushed to the GitHub default branch first.
 
 ---
 
@@ -122,13 +126,20 @@ npx skills add pourmirzai/What-If -a claude-code -y
 ```
 This installs the skill into the current project's `.claude/skills/what-if`. (Without `-a`, the installer also detects Claude Code automatically and symlinks that same location from `.agents/skills/what-if`.)
 
+**Or install as a plugin from this repo's marketplace (verified):**
+```bash
+claude plugin marketplace add pourmirzai/What-If
+claude plugin install what-if@what-if
+```
+This reads `.claude-plugin/marketplace.json`, installs the plugin at user scope, and exposes the `what-if` skill.
+
 **Or copy the skill directly (single file):**
 ```bash
 mkdir -p ~/.claude/skills/what-if
 curl -sL https://raw.githubusercontent.com/pourmirzai/What-If/main/skills/what-if/SKILL.md -o ~/.claude/skills/what-if/SKILL.md
 ```
 
-> ⚠️ **Not available:** `claude plugin marketplace add pourmirzai/What-If` fails, because this repository has no `.claude-plugin/marketplace.json`. Use one of the two methods above instead.
+> The marketplace install needs `.claude-plugin/marketplace.json` on the repository's default branch; the local-directory form (`claude plugin marketplace add ./` from a clone) works without pushing.
 
 ### Verify
 Start a new Claude Code session and run:
@@ -223,7 +234,14 @@ curl -sL https://raw.githubusercontent.com/pourmirzai/What-If/main/skills/what-i
 <details>
 <summary><strong>OpenAI Codex / Universal AGENTS.md</strong></summary>
 
-Add What-if to your project's `AGENTS.md`:
+**Plugin marketplace (verified):**
+```bash
+codex plugin marketplace add pourmirzai/What-If
+codex plugin add what-if@what-if
+```
+This reads `.agents/plugins/marketplace.json` and installs the plugin bundle (the skill lands under `~/.codex/plugins/cache/`). The `owner/repo` form needs that manifest on the pushed default branch; from a clone, `codex plugin marketplace add ./` works immediately.
+
+**Or add the skill to your project's `AGENTS.md` (documented, not executed in review):**
 ```bash
 mkdir -p .agents/skills/what-if
 curl -sL https://raw.githubusercontent.com/pourmirzai/What-If/main/skills/what-if/SKILL.md -o .agents/skills/what-if/SKILL.md
