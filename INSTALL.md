@@ -7,8 +7,7 @@ Choose your coding assistant or agent harness below.
 > ⬜ Not executed: global `-g` installs, `-a opencode`, `npx github:pourmirzai/What-If --all`, and the Antigravity/Gemini CLI, Windsurf, Qwen Code, and Zed sections below. They either write to your home directory or need a tool that is not installed here. Each follows that tool's documented interface — review before use.
 
 > **Marketplace verification (2026-10-02, `claude` 2.1.269, `codex` 0.153.4).**
-> ✅ Executed and confirmed working: `claude plugin validate .claude-plugin/marketplace.json`, `claude plugin marketplace add ./`, `claude plugin install what-if@what-if` (skill shows up in `claude plugin details`), `codex plugin marketplace add ./`, `codex plugin add what-if@what-if` (install lands in `~/.codex/plugins/cache` with `skills/what-if/SKILL.md`).
-> ⬜ Not executed: the `owner/repo` form of `marketplace add` for either tool — it needs `.claude-plugin/marketplace.json` and `.agents/plugins/marketplace.json` pushed to the GitHub default branch first.
+> ✅ Executed and confirmed working: `claude plugin validate .claude-plugin/marketplace.json`, `claude plugin marketplace add pourmirzai/What-If`, `claude plugin install what-if@what-if` (skill shows up in `claude plugin details`), `codex plugin marketplace add pourmirzai/What-If`, `codex plugin add what-if@what-if` (install lands in `~/.codex/plugins/cache` with `skills/what-if/SKILL.md`), and the local-directory form (`marketplace add ./`) of both tools.
 
 ---
 

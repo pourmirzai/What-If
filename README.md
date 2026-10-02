@@ -98,7 +98,7 @@ codex plugin marketplace add pourmirzai/What-If
 codex plugin add what-if@what-if
 ```
 
-Verified 2026-10-02 (`claude` 2.1.269, `codex` 0.153.4) using the local-directory form of `marketplace add`: both marketplaces register, both plugins install, and Claude Code reports the `what-if` skill in the plugin's component inventory. The `owner/repo` form of the command needs these manifests on the pushed default branch of the GitHub repository.
+Verified 2026-10-02 (`claude` 2.1.269, `codex` 0.153.4), both with the local-directory form of `marketplace add` and with the `owner/repo` GitHub form: both marketplaces register, both plugins install, and Claude Code reports the `what-if` skill in the plugin's component inventory.
 
 ---
 
