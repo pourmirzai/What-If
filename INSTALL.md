@@ -72,7 +72,7 @@ npx github:pourmirzai/What-If --claude --local
 Supported flags: `--all`, `--antigravity`, `--claude`, `--cursor`, `--windsurf`, `--codex`, `--local` (omit `--local` for a global install).
 
 ### Uninstall
-Delete the `SKILL.md` file the installer reported writing, e.g. `rm -rf ~/.claude/skills/what-if`.
+Delete the `SKILL.md` file the installer reported writing, e.g. `rm ~/.claude/skills/what-if/SKILL.md`.
 
 </details>
 
@@ -107,7 +107,8 @@ Re-run the `curl` command above to fetch the latest `SKILL.md`.
 
 ### Uninstall
 ```bash
-rm -rf ~/.gemini/config/skills/what-if
+rm ~/.gemini/config/skills/what-if/SKILL.md
+rmdir ~/.gemini/config/skills/what-if
 ```
 
 </details>
@@ -156,7 +157,8 @@ npx skills update what-if
 ```bash
 npx skills remove what-if
 # or, if you copied the file by hand:
-rm -rf ~/.claude/skills/what-if
+rm ~/.claude/skills/what-if/SKILL.md
+rmdir ~/.claude/skills/what-if
 ```
 
 </details>
